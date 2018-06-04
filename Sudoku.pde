@@ -1,7 +1,8 @@
 int I, J;
 int[] al;
-int[][] matrizt;
+int[][] matrizt = new int[3][3];
 class Sudoku {
+  int px=185, py=15, px1=35, py1=165;
   int[] numi, numj, num;
   float x, y, X, Y=15;
   PVector[][] matrizp;
@@ -18,6 +19,16 @@ class Sudoku {
         X=X+50;
       }
       Y=Y+50;
+    }
+    for (int i = 0; i<2; i++) {
+      stroke(0);
+      line(px, py, px, py+450);
+      px=px+150;
+    }
+    for (int i = 0; i<2; i++) {
+      stroke(0);
+      line(px1, py1, px1+450, py1);
+      py1=py1+150;
     }
     for (int i = 0; i<9; i++) {
       for (int j = 0; j<9; j++) {
@@ -154,7 +165,7 @@ class Sudoku {
       y=y+50;
       for (int j = 0; j<3; j++) {
         fill(0);
-        text(matriz2[i][j], x, y);
+        text(matriz8[i][j], x, y);
         x=x+50;
       }
     }
@@ -164,26 +175,21 @@ class Sudoku {
       y=y+50;
       for (int j = 0; j<3; j++) {
         fill(0);
-        text(matriz2[i][j], x, y);
+        text(matriz9[i][j], x, y);
         x=x+50;
       }
     }
   }
-  Sudoku(int[][] m, int[] A, int[] Numi, int[] Numj, int[] Num) {
-    al = new int[9];
-    for (int i = 0; i<9; i++) {
-      al[i] = A[i] ;
-    }
+  Sudoku() {
+    
   }
 }
 boolean pick(int x, int y, float a, float b) {
   return x >= a && x <= a+50 && y >= b && y <= b+50;
 }
 void mouseClicked(int i, int j) {
-  matrizt = new int[3][3];
   I=i;
   J=j;
-  print(I,J);
 }
 void keyPressed() {
   int n = int(key); 
